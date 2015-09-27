@@ -31,8 +31,8 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li><a href="${base}/" title="Home">Home</a></li>
-                <li><a href="${base}/users" title="View Users">Users</a></li>
+                <!-- li><a href="${base}/" title="Home">Home</a></li -->
+                <li><a href="${base}/users" title="View Contacts">Contacts</a></li>
                 <!-- Add new menu items here -->
             </ul>
         </div>

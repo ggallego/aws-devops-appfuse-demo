@@ -2,9 +2,9 @@ package com.reinvent.webapp.controller;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.appfuse.model.User;
-import org.appfuse.service.UserExistsException;
-import org.appfuse.service.UserManager;
+import com.reinvent.model.User;
+import com.reinvent.service.UserExistsException;
+import com.reinvent.service.UserManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;

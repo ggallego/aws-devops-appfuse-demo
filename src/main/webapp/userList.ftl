@@ -2,7 +2,7 @@
 <h2>${rc.getMessage("userList.title")}</h2>
 
 <button class="btn btn-primary" onclick="location.href='userform'" style="float: right; margin-top: -30px">
-    <i class="icon-plus icon-white"></i> Add User</button>
+    <i class="icon-plus icon-white"></i> Add Contact</button>
 
 <table class="table table-condensed table-striped table-hover" id="userList">
 <thead>
@@ -11,6 +11,8 @@
     <th>${rc.getMessage("user.firstName")}</th>
     <th>${rc.getMessage("user.lastName")}</th>
     <th>${rc.getMessage("user.email")}</th>
+    <th>${rc.getMessage("user.phoneNumber")}</th>
+    <th>${rc.getMessage("user.website")}</th>    
 </tr>
 </thead>
 <tbody>
@@ -22,6 +24,8 @@
     <td>${user.firstName?html}</td>
     <td>${user.lastName?html}</td>
     <td>${user.email?html}</td>
+    <td>${user.phoneNumber!""?html}</td>
+    <td>${user.website!"?html}</td>
 </tr>
 </#list>
 </tbody>

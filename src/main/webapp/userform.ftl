@@ -53,6 +53,18 @@
             <@spring.formInput "user.email", 'id="email" required class="form-control"'/>
             <@spring.showErrors "<br/>", "help-block"/>
         </div>
+        <@spring.bind "user.phoneNumber"/>
+        <div class="form-group<#if spring.status.error> has-error</#if>">
+            <label for="phoneNumber" class="control-label"><@spring.message "user.phoneNumber"/>:</label>
+            <@spring.formInput "user.phoneNumber", 'id="phoneNumber" required class="form-control"'/>
+            <@spring.showErrors "<br/>", "help-block"/>
+        </div>
+        <@spring.bind "user.website"/>
+        <div class="form-group<#if spring.status.error> has-error</#if>">
+            <label for="website" class="control-label"><@spring.message "user.website"/>:</label>
+            <@spring.formInput "user.website", 'id="website" required class="form-control"'/>
+            <@spring.showErrors "<br/>", "help-block"/>
+        </div>
         <div class="form-group">
             <button type="submit" class="btn btn-primary" name="save" id="save">
                 <i class="icon-ok icon-white"></i> <@spring.message "button.save"/></button>
