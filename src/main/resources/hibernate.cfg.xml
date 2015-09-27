@@ -6,6 +6,9 @@
 
 <hibernate-configuration>
     <session-factory>
+    	<!-- Hibernate config -->
+        <property name="hbm2ddl.auto">update</property>
+    	<!-- Models -->
         <mapping class="org.appfuse.model.User"/>
         <mapping class="org.appfuse.model.Role"/>
     </session-factory>
