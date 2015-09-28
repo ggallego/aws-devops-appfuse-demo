@@ -1,0 +1,9 @@
+#!/bin/bash
+TOMCAT_RUNNING="$(pgrep java)"
+if [[ -n  $TOMCAT_RUNNING ]]; then
+	echo "### Stopping Tomcat."
+    service tomcat7 stop 
+else
+	echo "### Tomcat already stopped, nothing to do."
+fi
+
