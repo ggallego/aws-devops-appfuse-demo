@@ -25,7 +25,7 @@
     <td>${user.lastName?html}</td>
     <td>${user.email?html}</td>
     <td>${user.phoneNumber!""?html}</td>
-    <td>${user.website!"?html}</td>
+    <td>${user.website!""?html}</td>
 </tr>
 </#list>
 </tbody>
