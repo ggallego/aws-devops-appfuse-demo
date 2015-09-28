@@ -1,0 +1,26 @@
+version: 0.0
+os: linux
+files:
+  - source: content/ROOT.war
+    destination: /usr/share/tomcat7/webapps
+  - source: content/appfuse_light_spring_freemarker.mv.db
+    destination: /tmp
+permissions:
+  - object: /usr/share/tomcat7/webapps/ROOT.war
+    owner: tomcat
+    group: tomcat
+  - object: /tmp/appfuse_light_spring_freemarker.mv.db
+    owner: tomcat
+    group: tomcat
+hooks:
+  ApplicationStop:
+    - location: scripts/stop_server
+      runas: root
+  BeforeInstall:
+    - location: scripts/install_dependencies
+      runas: root
+    - location: scripts/remove_oldies
+      runas: root
+  ApplicationStart:
+    - location: scripts/start_server
+      runas: root
