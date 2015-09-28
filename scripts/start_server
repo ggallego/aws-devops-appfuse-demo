@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "### Starting Tomcat."
+service tomcat7 start
+
