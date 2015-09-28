@@ -1,8 +1,0 @@
-#!/bin/bash
-echo "### Updating database host url."
-DB_HOST="$(aws rds describe-db-instances --db-instance-identifier appfuse --query 'DBInstances[0].Endpoint.Address' --output text --region us-east-1)"
-DB_PORT="$(aws rds describe-db-instances --db-instance-identifier appfuse --query 'DBInstances[0].Endpoint.Port' --output text --region us-east-1)"
-unzip /usr/share/tomcat7/webapps/ROOT.war WEB-INF/classes/applicationContext-resources.xml
-sed s/REPLACE_DB_HOST/$DB_HOST:$DB_PORT/ <WEB-INF/classes/applicationContext-resources.xml >WEB-INF/classes/applicationContext-resources-updated.xml
-mv -f WEB-INF/classes/applicationContext-resources-updated.xml WEB-INF/classes/applicationContext-resources.xml
-zip /usr/share/tomcat7/webapps/ROOT.war WEB-INF/classes/applicationContext-resources.xml

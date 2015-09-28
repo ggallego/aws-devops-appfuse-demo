@@ -12,6 +12,8 @@ hooks:
     - location: scripts/applicationstop
       runas: root
   BeforeInstall:
+    - location: scripts/applicationstop
+      runas: root
     - location: scripts/beforeinstall_install_dependencies
       runas: root
     - location: scripts/beforeinstall_remove_oldies
