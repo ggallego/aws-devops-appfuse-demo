@@ -1,0 +1,26 @@
+version: 0.0
+os: linux
+files:
+  - source: content/ROOT.war
+    destination: /usr/share/tomcat7/webapps
+permissions:
+  - object: /usr/share/tomcat7/webapps/ROOT.war
+    owner: tomcat
+    group: tomcat
+hooks:
+  ApplicationStop:
+    - location: scripts/applicationstop
+      runas: root
+  BeforeInstall:
+    - location: scripts/applicationstop
+      runas: root
+    - location: scripts/beforeinstall_install_dependencies
+      runas: root
+    - location: scripts/beforeinstall_remove_oldies
+      runas: root
+  AfterInstall:
+    - location: scripts/afterinstall
+      runas: root
+  ApplicationStart:
+    - location: scripts/applicationstart
+      runas: root
