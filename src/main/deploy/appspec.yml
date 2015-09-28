@@ -19,9 +19,9 @@ hooks:
   BeforeInstall:
     - location: scripts/applicationstop
       runas: root
-    - location: scripts/beforeinstall_installdependencies
+    - location: scripts/beforeinstall_install_dependencies
       runas: root
-    - location: scripts/beforeinstall_removeoldies
+    - location: scripts/beforeinstall_remove_oldies
       runas: root
   ApplicationStart:
     - location: scripts/applicationstart
