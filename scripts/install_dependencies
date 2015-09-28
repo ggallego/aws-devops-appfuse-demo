@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "### Installing Tomcat."
+yum install -y tomcat7
+
