@@ -1,6 +1,6 @@
 #!/bin/bash
-isExistApp = `pgrep java`
-if [[ -n  $isExistApp ]]; then
+TOMCAT_RUNNING="$(pgrep java)"
+if [[ -n  $TOMCAT_RUNNING ]]; then
 	echo "### Stopping Tomcat."
     service tomcat7 stop 
 else
