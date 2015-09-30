@@ -1,9 +1,0 @@
-#!/bin/bash
-isExistApp = `pgrep java`
-if [[ -n  $isExistApp ]]; then
-	echo "### Stopping Tomcat."
-    service tomcat7 stop        
-else
-	echo "### Tomcat already stopped, nothing to do."
-fi
-

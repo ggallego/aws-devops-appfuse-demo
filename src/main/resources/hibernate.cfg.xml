@@ -7,9 +7,9 @@
 <hibernate-configuration>
     <session-factory>
     	<!-- Hibernate config -->
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">${hibernate.hbm2ddl}</property>
     	<!-- Models -->
-        <mapping class="com.reinvent.model.User"/>
-        <mapping class="com.reinvent.model.Role"/>
+        <mapping class="org.appfuse.model.User"/>
+        <mapping class="org.appfuse.model.Role"/>
     </session-factory>
 </hibernate-configuration>

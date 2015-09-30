@@ -1,7 +1,7 @@
 package com.reinvent.webapp.controller;
 
-import com.reinvent.model.User;
-import com.reinvent.service.UserManager;
+import org.appfuse.model.User;
+import org.appfuse.service.UserManager;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,6 +1,6 @@
 package com.reinvent.webapp.controller;
 
-import com.reinvent.service.UserManager;
+import org.appfuse.service.UserManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;

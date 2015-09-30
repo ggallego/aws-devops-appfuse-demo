@@ -1,6 +1,0 @@
-#!/bin/bash
-echo "### Removing old app files."
-rm -rf /usr/share/tomcat7/appfuse-1.0-SNAPSHOT/
-rm -rf /usr/share/tomcat7/work/Catalina/localhost/ROOT/
-rm -rf /usr/share/tomcat7/webapps/ROOT.war
-rm -rf /usr/share/tomcat7/webapps/ROOT/
