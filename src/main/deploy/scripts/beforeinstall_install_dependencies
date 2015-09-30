@@ -1,4 +1,6 @@
 #!/bin/bash
 echo "### Installing Tomcat."
 yum install -y tomcat7
+chkconfig --level 345 tomcat7 on
+
 
