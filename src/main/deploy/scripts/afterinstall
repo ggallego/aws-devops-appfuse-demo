@@ -8,7 +8,7 @@ echo "DB_NAME: $DB_NAME"
 echo "DB_HOST: $DB_HOST"
 echo "DB_PORT: $DB_PORT"
 
-unzip -f /usr/share/tomcat7/webapps/ROOT.war WEB-INF/classes/applicationContext-resources.xml
+unzip /usr/share/tomcat7/webapps/ROOT.war WEB-INF/classes/applicationContext-resources.xml
 
 temp=$(mktemp)
 cp WEB-INF/classes/applicationContext-resources.xml $temp
