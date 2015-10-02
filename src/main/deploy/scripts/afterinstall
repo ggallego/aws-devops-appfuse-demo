@@ -8,9 +8,9 @@ echo "DB_NAME: $DB_NAME"
 echo "DB_HOST: $DB_HOST"
 echo "DB_PORT: $DB_PORT"
 
-unzip /usr/share/tomcat7/webapps/ROOT.war WEB-INF/classes/applicationContext-resources.xml
+unzip -f /usr/share/tomcat7/webapps/ROOT.war WEB-INF/classes/applicationContext-resources.xml
 
-temp=$(mktemp /tmp/applicationContext-resources.xml.TEMP)
+temp=$(mktemp)
 cp WEB-INF/classes/applicationContext-resources.xml $temp
 
 sed s/REPLACE_DBNAME/$DB_NAME/g $temp > $temp.new && mv $temp.new $temp
@@ -19,4 +19,5 @@ sed s/REPLACE_DBHOST/$DB_HOST/g $temp > $temp.new && mv $temp.new $temp
 cp -f $temp WEB-INF/classes/applicationContext-resources.xml
 zip /usr/share/tomcat7/webapps/ROOT.war WEB-INF/classes/applicationContext-resources.xml
 
+rm -f WEB-INF/classes/applicationContext-resources.xml
 rm -f $temp
