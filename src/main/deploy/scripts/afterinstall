@@ -5,7 +5,15 @@ DB_HOST="$(aws rds describe-db-instances --db-instance-identifier $DB_NAME --que
 DB_PORT="$(aws rds describe-db-instances --db-instance-identifier $DB_NAME --query 'DBInstances[0].Endpoint.Port' --output text --region us-east-1)"
 
 unzip /usr/share/tomcat7/webapps/ROOT.war WEB-INF/classes/applicationContext-resources.xml
-sed s/REPLACE_DBNAME/$DB_NAME/ <WEB-INF/classes/applicationContext-resources.xml >WEB-INF/classes/applicationContext-resources-updated.xml
-sed s/REPLACE_DBHOST/$DB_HOST:$DB_PORT/ <WEB-INF/classes/applicationContext-resources.xml >WEB-INF/classes/applicationContext-resources-updated.xml
-mv -f WEB-INF/classes/applicationContext-resources-updated.xml WEB-INF/classes/applicationContext-resources.xml
+
+temp=$(mktemp)
+cp WEB-INF/classes/applicationContext-resources.xml $temp
+
+sed s/REPLACE_DBNAME/$DB_NAME/g $temp > $temp.new && mv $temp.new $temp
+sed s/REPLACE_DBHOST/$DB_HOST/g $temp > $temp.new && mv $temp.new $temp
+
+cp -f $temp WEB-INF/classes/applicationContext-resources.xml
 zip /usr/share/tomcat7/webapps/ROOT.war WEB-INF/classes/applicationContext-resources.xml
+
+rm -f WEB-INF/classes/applicationContext-resources.xml
+rm -f $temp
