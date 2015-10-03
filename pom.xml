@@ -93,8 +93,8 @@
         <dao.framework>hibernate</dao.framework>
         <web.framework>spring-freemarker</web.framework>
         <!-- Mysql on RDS -->
-        <db.name>REPLACE_DB_NAME</db.name>
-        <db.host>REPLACE_DB_HOST</db.host>
+        <db.name>REPLACE_DBNAME</db.name>
+        <db.host>REPLACE_DBHOST</db.host>
         <jdbc.version>5.1.36</jdbc.version>
         <jdbc.url><![CDATA[jdbc:mysql://${db.host}/${db.name}?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true]]></jdbc.url>
         <jdbc.username>master</jdbc.username>
