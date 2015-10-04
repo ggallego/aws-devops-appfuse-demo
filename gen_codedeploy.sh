@@ -1,3 +1,6 @@
+# compile
+mvn clean install -DskipTests=true
+
 # generate source
 zip -r appfuse-v2-src.zip src/ pom.xml
 
