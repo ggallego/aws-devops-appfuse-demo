@@ -1,5 +1,5 @@
 # compile
-mvn clean install -DskipTests=true
+mvn clean install -DskipTests=true -P h2
 
 # generate source
 zip -r appfuse-v1-src.zip src/ pom.xml
