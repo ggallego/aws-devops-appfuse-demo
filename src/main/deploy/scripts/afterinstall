@@ -1,16 +1,19 @@
 #!/bin/bash
 echo "### Updating database host url."
-DB_NAME=$APPLICATION_NAME
-DB_HOST="$(aws rds describe-db-instances --db-instance-identifier $DB_NAME --query 'DBInstances[0].Endpoint.Address' --output text --region us-east-1)"
-DB_PORT="$(aws rds describe-db-instances --db-instance-identifier $DB_NAME --query 'DBInstances[0].Endpoint.Port' --output text --region us-east-1)"
+
+RDSSTACKNAME=$APPLICATION_NAME-rds
+DBNAME="$(aws cloudformation describe-stacks --stack-name $RDSSTACKNAME --output text --region us-east-1 --query 'Stacks[0].Outputs[?OutputKey==`RDSDBName`].OutputValue')"
+DBHOST="$(aws cloudformation describe-stacks --stack-name $RDSSTACKNAME --output text --region us-east-1 --query 'Stacks[0].Outputs[?OutputKey==`RDSDBHost`].OutputValue')"
+DBPASSWD="$(aws cloudformation describe-stacks --stack-name $RDSSTACKNAME --output text --region us-east-1 --query 'Stacks[0].Outputs[?OutputKey==`RDSDBPasswd`].OutputValue')"
 
 unzip /usr/share/tomcat7/webapps/ROOT.war WEB-INF/classes/applicationContext-resources.xml
 
 temp=$(mktemp)
 cp WEB-INF/classes/applicationContext-resources.xml $temp
 
-sed s/REPLACE_DBNAME/$DB_NAME/g $temp > $temp.new && mv $temp.new $temp
-sed s/REPLACE_DBHOST/$DB_HOST/g $temp > $temp.new && mv $temp.new $temp
+sed s/REPLACE_DBNAME/$DBNAME/g $temp > $temp.new && mv $temp.new $temp
+sed s/REPLACE_DBHOST/$DBHOST/g $temp > $temp.new && mv $temp.new $temp
+sed s/REPLACE_DBPASSWD/$DBPASSWD/g $temp > $temp.new && mv $temp.new $temp
 
 cp -f $temp WEB-INF/classes/applicationContext-resources.xml
 zip /usr/share/tomcat7/webapps/ROOT.war WEB-INF/classes/applicationContext-resources.xml
