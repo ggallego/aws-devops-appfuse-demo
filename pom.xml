@@ -98,7 +98,7 @@
         <jdbc.version>5.1.36</jdbc.version>
         <jdbc.url><![CDATA[jdbc:mysql://${db.host}/${db.name}?createDatabaseIfNotExist=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true]]></jdbc.url>
         <jdbc.username>master</jdbc.username>
-        <jdbc.password>mymasterpasswd</jdbc.password>
+        <jdbc.password>REPLACE_DBPASSWD</jdbc.password>
 		<hibernate.hbm2ddl>update</hibernate.hbm2ddl>        
     </properties>
 </project>
